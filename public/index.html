@@ -469,5 +469,13 @@ document.addEventListener('keydown', e => {
 
 init();
 </script>
+
+<script>
+// Client-side keep-alive: ping server every 4 minutes while page is open
+setInterval(() => {
+  fetch('/ping').catch(() => {});
+}, 5 * 60 * 1000); // every 4 minutes
+</script>
+
 </body>
 </html>
